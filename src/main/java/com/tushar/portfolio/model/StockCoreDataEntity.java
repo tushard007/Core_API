@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.print.attribute.standard.DateTimeAtProcessing;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,17 +28,15 @@ import lombok.Setter;
 		private Long id;
 		@Column(unique=true)
 		private String company_name;
-		@Column(unique=true)
 		private String nse_code;
-		@Column(unique=true)
-		private int bse_code;
-		@Column(unique=true)
-		private String ISIN;
+
+		private Integer bse_code;
+
+		private String isin;
 		private Date listed_date;
 		private String industry;
 		private String sector;
-		private int face_value;
-		@Column(name = "date_created")
+		private Integer face_value;
 	    @CreationTimestamp
 	    private Date dateCreated;
 	    @Column(name = "timestamp")
