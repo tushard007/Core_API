@@ -3,6 +3,7 @@ package com.tushar.portfolio.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tushar.portfolio.model.StockCoreDataEntity;
 import com.tushar.portfolio.service.StockCoreDataService;
 
+
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
@@ -26,6 +29,7 @@ public class StockCoreDataController {
 	StockCoreDataService stockCoreDataService;
 	
 	@GetMapping("/StockCoreData")
+	@Cacheable("StockCoreDataEntity")
 	public ResponseEntity<List<StockCoreDataEntity>> get() {
 		List<StockCoreDataEntity> objStockData = stockCoreDataService.findAll();
 		return new ResponseEntity<List<StockCoreDataEntity>>(objStockData, HttpStatus.OK);
