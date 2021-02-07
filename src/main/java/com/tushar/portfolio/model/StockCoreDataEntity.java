@@ -1,5 +1,6 @@
 package com.tushar.portfolio.model;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -31,7 +32,7 @@ import lombok.Setter;
 		private String nse_code;
 
 		private Integer bse_code;
-
+        private BigDecimal current_price;
 		private String isin;
 		private Date listed_date;
 		private String industry;

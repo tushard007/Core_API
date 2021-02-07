@@ -16,15 +16,15 @@ public class PortfolioStock {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    @Column(unique=true)
-    private int stock_id;
-    private String current_price;
+    private Integer stock_id;
+    private Float current_price;
     private Date txn_date;
-    private float other_cost;
-    private int available_quantity;
-    private float invested_amount;
-    private float current_amount;
-    private float profit_loss;
+    private Float other_cost;
+    private Integer available_quantity;
+    private Float invested_amount;
+    private Float current_amount;
+    private Float profit_loss;
+    private Float avg_buy_price;
     private String broker;
     private String txn_type;
     private String category;
