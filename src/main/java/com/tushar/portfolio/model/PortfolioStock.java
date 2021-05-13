@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -17,7 +18,8 @@ public class PortfolioStock {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private Integer stock_id;
-    private Float current_price;
+    private String StockName;
+    private BigDecimal current_price;
     private Date txn_date;
     private Float other_cost;
     private Integer available_quantity;

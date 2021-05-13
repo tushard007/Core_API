@@ -2,26 +2,40 @@ package com.tushar.portfolio.controller;
 
 
 import com.tushar.portfolio.model.PortfolioStock;
+import com.tushar.portfolio.model.StockCoreDataEntity;
 import com.tushar.portfolio.service.PortfolioStockDataService;
+import com.tushar.portfolio.service.StockCoreDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.sound.sampled.Port;
 import java.util.List;
 
-@CrossOrigin("*")
+
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class PortfolioStockController {
 
     @Autowired
     PortfolioStockDataService portfolioStockDataService;
-
+    @Autowired
+    StockCoreDataService stockCoreDataService;
     @GetMapping("/PortfolioStock")
     public ResponseEntity<List<PortfolioStock>> get() {
+        List<StockCoreDataEntity> objStockData=  stockCoreDataService.findAll();
         List<PortfolioStock> objPortfolioStockData = portfolioStockDataService.findAll();
+
+        for (StockCoreDataEntity stk:objStockData) {
+            for (PortfolioStock prtData:objPortfolioStockData) {
+              if(prtData.getId()==stk.getId())  {
+                  prtData.setStockName(stk.getCompany_name());
+                  prtData.setCurrent_price(stk.getCurrent_price());
+              }
+            }
+        }
+        objPortfolioStockData.stream().map(PortfolioStock::getStockName).forEach(System.out::println);
         System.out.println("get method called");
         return new ResponseEntity<List<PortfolioStock>>(objPortfolioStockData, HttpStatus.OK);
     }

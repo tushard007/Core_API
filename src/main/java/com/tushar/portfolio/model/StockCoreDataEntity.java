@@ -33,6 +33,8 @@ import lombok.Setter;
 
 		private Integer bse_code;
         private BigDecimal current_price;
+        private BigDecimal marketCap_in_CR;
+        private BigDecimal Dividend;
 		private String isin;
 		private Date listed_date;
 		private String industry;

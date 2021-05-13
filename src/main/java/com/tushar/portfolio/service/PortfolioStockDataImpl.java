@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class PortfolioStockDataImpl implements PortfolioStockDataService{
 
     @Autowired
     PortfolioStockRepository portfolioStockRepository;
+
 
     @Override
     public List<PortfolioStock> findAll() {
