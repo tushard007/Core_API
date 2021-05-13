@@ -17,7 +17,7 @@ public class PortfolioStock {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private Integer stock_id;
+    private Long stock_id;
     private String StockName;
     private BigDecimal current_price;
     private Date txn_date;

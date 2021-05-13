@@ -30,6 +30,7 @@ public class StockCoreDataController {
 
 		List<StockCoreDataEntity> objStockData = stockCoreDataService.findAll();
 
+/*
 		objStockData.forEach(e->{
 
 			try {
@@ -59,6 +60,7 @@ public class StockCoreDataController {
 				ioException.printStackTrace();
 			}
 		});
+*/
 
 		return new ResponseEntity<List<StockCoreDataEntity>>(objStockData, HttpStatus.OK);
 	}
